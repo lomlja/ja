@@ -197,32 +197,37 @@ msgTxt.addEventListener('input', function() {
     msgBtn.disabled = msgTxt.value.trim() === '';
 }); 
     // TO SEND MESSAGES
-    module.sendMsg = function sendMsg() {
-            // Disable the submit button before sending the message
-            msgBtn.disabled = true;
+module.sendMsg = function sendMsg() {
+    // Disable the submit button before sending the message
+    msgBtn.disabled = true;
 
-            var msg = msgTxt.value;
-            var timestamp = new Date().getTime();
-            set(ref(db, "messages/" + timestamp), {
-                msg: msg,
-                sender: sender
-            }).then(() => {
-                // Clear the input field and re-enable the submit button after sending
-                msgTxt.value = '';
-                msgBtn.disabled = false;
+    var msg = msgTxt.value;
 
-                // Scroll down to the new message
-                scrollMessagesToBottom();
+    // Get a new reference for a new message
+    const newMessageRef = ref(db, "messages").push();
 
-                // Play the "send" sound
-                const sendSound = document.getElementById("sendSound");
-                sendSound.play();
-            }).catch(error => {
-                // Handle any errors here
-                console.error("Error sending message:", error);
-                msgBtn.disabled = false; // Re-enable the button if there's an error
-            });
-        }
+    // Set the data for the new message
+    set(newMessageRef, {
+        msg: msg,
+        sender: sender,
+        timestamp: firebase.database.ServerValue.TIMESTAMP // Server-side timestamp
+    }).then(() => {
+        // Clear the input field and re-enable the submit button after sending
+        msgTxt.value = '';
+        msgBtn.disabled = false;
+
+        // Scroll down to the new message
+        scrollMessagesToBottom();
+
+        // Play the "send" sound
+        const sendSound = document.getElementById("sendSound");
+        sendSound.play();
+    }).catch(error => {
+        // Handle any errors here
+        console.error("Error sending message:", error);
+        msgBtn.disabled = false; // Re-enable the button if there's an error
+    });
+}
 
         // TO RECEIVE MSG
 onChildAdded(ref(db, "messages"), (data) => {
