@@ -165,11 +165,12 @@
                     </center>
                     <!-- Chat messages will be appended here dynamically -->
                     
+                    
                 </div>
                 <p id="statusUser2_2" class="onlinestatusbottom">connecting...</p>
                 <form onsubmit="return false;" id="messageForm">
                     <div id="sendMsg" class="type">
-                        <input type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext">
+                        <input type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext" onkeydown="handleTab(event)">
                         <input type="submit" id="msgBtn" value="Send" onclick="module.sendMsg()" class="sendbutton" disabled>
                     </div>
                 </form>
@@ -204,6 +205,7 @@
                     <p>Sign out</p>
                 </a>
           </div>
+          
        
           
         <audio id="sendSound" src="send.mp3"></audio>
@@ -432,6 +434,10 @@ function closeSidebar() {
     });
 </script>
 <script src="js/curtain.js"></script>
+<script src="js/format.js"></script>
+<script src="js/glow.js"></script>
+<script src="js/bad-words.js"></script>
 <script src="js/logo.js"></script>
+<script src="js/cutegif.js"></script>
 </body>
 </html>
