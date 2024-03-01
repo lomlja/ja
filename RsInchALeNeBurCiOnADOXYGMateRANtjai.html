@@ -155,7 +155,7 @@
                 </div>
                 <form onsubmit="return false;" id="messageForm">
                     <div id="sendMsg" class="type">
-                        <input type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext">
+                        <input type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext" onkeydown="handleTab(event)">
                         <input type="submit" id="msgBtn" value="Send" onclick="module.sendMsg()" class="sendbutton" disabled>
                     </div>
                 </form>
