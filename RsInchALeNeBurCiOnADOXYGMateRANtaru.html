@@ -102,8 +102,8 @@
                 <h1>Chats</h1>
                 <a href="RsInchALeNeBurCiOnADOXYGMateRANt.html">
                     <div class="contact" id="contact1" style="background-color: #56143f;">
-                        <img src="images/pfp/aravind.jpg" alt="Profile Picture">
-                        <span>Jaii🧿</span>
+                        <img src="images/pfp/jaita.jpg" alt="Profile Picture">
+                        <span>My love</span>
                     </div>
                 </a>
                 <a href="ERATeRsOUsIgIOnicaru.html">
@@ -120,7 +120,7 @@
                 </a>
                 <center>
                     <div class="myprofile">
-                        <img src="images/pfp/aravind.jpg" alt="ME">
+                        <img src="images/pfp/jaita.jpg" alt="ME">
                         <p class="myname"><span id="nameDisplay"></span></p>
                     </div>
                 </center>
@@ -140,9 +140,9 @@
             <div class="chat-container">
                 <div class="chat-header" onclick="openNav()">
                     <div class="contact-profile" id="contactProfile" >
-                        <img src="images/pfp/aravind.jpg" alt="Profile Picture">
+                        <img src="images/pfp/jaita.jpg" alt="Profile Picture">
                         <div>
-                            <h1 class="nameuser">Jaii🧿</h1>
+                            <h1 class="nameuser">,y love</h1>
                             <p id="statusUser2_1" class="onlinestatustop">connecting...</p>
                             
                             
@@ -182,8 +182,8 @@
                 <h1 style="color: #fff;">Chats</h1>
                 <div class="chat-list">
                     <div class="contact" style="background-color: #25428b">
-                        <img src="images/pfp/aravind.jpg" alt="jaita's Profile" class="profile-pic">
-                        <div class="contact-name">Jaii🧿</div>
+                        <img src="images/pfp/jaita.jpg" alt="jaita's Profile" class="profile-pic">
+                        <div class="contact-name">My love</div>
                     </div>
                     <br>
                     <a href="ERATeRsOUsIgIOnicaru.html">
@@ -209,6 +209,8 @@
           
         <audio id="sendSound" src="send.mp3"></audio>
         <audio id="receiveSound" src="recieve.mp3"></audio>
+<audio id="kurchi" src="kurchi.mp3"></audio>
+<audio id="kurchiSound" src="kurchii.mp3"></audio>
     <script>
         module = {};
     </script>
@@ -247,13 +249,16 @@ msgTxt.addEventListener('input', function() {
     msgBtn.disabled = msgTxt.value.trim() === '';
 });
 
-    // TO SEND MESSAGES
+   // TO SEND MESSAGES
 module.sendMsg = function sendMsg() {
     console.log("Sending message...");
     // Disable the submit button before sending the message
     msgBtn.disabled = true;
 
     var msg = msgTxt.value;
+
+    // Check if the message contains the word "KURCHI"
+    var containsKurchi = msg.toLowerCase().includes("kurchi");
 
     // Get a reference to the "messages" location in the database
     const messagesRef = ref(db, "messages");
@@ -280,6 +285,12 @@ module.sendMsg = function sendMsg() {
             const sendSound = document.getElementById("sendSound");
             sendSound.play();
         });
+
+        // Play the "KURCHI" sound if the message contains "KURCHI"
+if (containsKurchi) {
+    const kurchiSound = document.getElementById("kurchi");
+    kurchiSound.play();
+}
     }).catch(error => {
         // Handle any errors here
         console.error("Error sending message:", error);
@@ -292,13 +303,36 @@ onChildAdded(ref(db, "messages"), (data) => {
     // Your existing code to append messages...
     if (data.val().sender == sender) {
         messages.innerHTML += "<div style=justify-content:end class=outer id=" + data.key + "><div id=inner class=me new-message>" + processMessage(data.val().msg) + "<button id=dltMsg onclick=module.dltMsg('" + data.key + "')>X</button></div></div>";
+        
+        // Check if the received message contains the word "KURCHI"
+        if (data.val().msg.toLowerCase().includes("kurchi")) {
+            console.log("KURCHI message sent by current user"); // Debugging line
+            
+            // Play the "KURCHI" sound
+            const kurchiSound = document.getElementById("kurchi");
+            kurchiSound.play();
+        } else {
+            // Play the "send" sound after user interaction
+            const sendSound = document.getElementById("sendSound");
+            sendSound.play();
+        }
     } else {
         messages.innerHTML += "<div class=outer id=" + data.key + "><div class=notMe><br><div class=textbubble-notme new-message>" + processMessage(data.val().msg) + "</div></div></div>";
 
-        // Play the "receive" sound
-        const receiveSound = document.getElementById("receiveSound");
-        receiveSound.play();
+        // Check if the received message contains the word "KURCHI"
+        if (data.val().msg.toLowerCase().includes("kurchi")) {
+            console.log("KURCHI message received"); // Debugging line
+            
+            // Play the "KURCHI" sound
+            const kurchiSound = document.getElementById("kurchi");
+            kurchiSound.play();
+        } else {
+            // Play the "receive" sound
+            const receiveSound = document.getElementById("receiveSound");
+            receiveSound.play();
+        }
     }
+
 
     // Scroll down to the new message
     scrollMessagesToBottom();
@@ -316,7 +350,6 @@ onChildAdded(ref(db, "messages"), (data) => {
     var deleteButton = msgBox.querySelector("#dltMsg");
     deleteButton.setAttribute("onclick", `module.dltMsg('${data.key}')`);
 });
-
 
 // Function to process messages and identify image and video links
 function processMessage(msg) {
@@ -432,6 +465,21 @@ function closeSidebar() {
         e.preventDefault();
     });
 </script>
+<script>
+ // Function to play audio when "KURCHI" is mentioned
+function playAudioIfKurchi(message) {
+    if (message.toUpperCase().includes('KURCHI')) {
+        const audio = new Audio('kurchi.mp3');
+        audio.play();
+    }
+}
+
+// Example usage:
+// Simulating receiving a message
+const receivedMessage = "AAA KURCHI NI MADATHAPETTI";
+playAudioIfKurchi(receivedMessage);
+
+  </script>
 <script src="js/cutegif.js"></script>
 <script src="js/curtain.js"></script>
 <script src="js/format.js"></script>
