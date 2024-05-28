@@ -9,9 +9,13 @@ function checkPassword() {
         case "281208":
             redirectPage = "RsInchALeNeBurCiOnADOXYGMateRANtaru.html";
             break;
-        default:
-            redirectPage = "nouser.html";
+        case "jaita08":
+        case "arava07":
+            redirectPage = "https://pomofocus.io/";
             break;
+        default:
+            alert("User not found");
+            return; // Stop further execution
     }
 
     window.location.href = redirectPage;
