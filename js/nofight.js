@@ -1,6 +1,6 @@
 document.getElementById('msgTxt').addEventListener('input', function() {
     var message = this.value.toLowerCase().trim(); // Convert the message to lowercase and remove leading/trailing spaces
-    var keywords = ['ok', 'whatever', 'wtv', 'hmm', 'hm', 'oh', 'oh yeah', 'huh', 'idk', 'idkk']; // List of keywords to check for
+    var keywords = ['whatever', 'wtv', 'hmm', 'hm', 'oh yeah', 'huh', 'idk', 'idkk']; // List of keywords to check for
     
     // Split the message into words
     var words = message.split(/\s+/);

@@ -60,7 +60,7 @@ reply {
   }
 .sidebar {
     width: 250px;
-    background-image: url(../images/star.gif);
+    background-image: url(../images/love1.gif);
     color: white;
     padding: 20px;
     box-sizing: border-box;
@@ -528,7 +528,7 @@ div.contact span {
         display: block; /* Show on screens 786px or less */
     }
     body {
-        background-image: url(../images/star.gif);
+        background-image: url(../images/love1.gif);
     }
 }
 @media screen and (max-width: 768px) {
