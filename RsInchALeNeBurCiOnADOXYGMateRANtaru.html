@@ -106,7 +106,7 @@
                 <!-- Sidebar contacts -->
                 <h1>Chats</h1>
                 <a href="RsInchALeNeBurCiOnADOXYGMateRANt.html">
-                    <div class="contact" id="contact1" style="background-color: #56143f;">
+                    <div class="contact" id="contact1" style="background-color: #8a0101;">
                         <img src="images/pfp/jaita.jpg" alt="Profile Picture">
                         <span>Jaitaaa</span>
                     </div>
@@ -431,7 +431,7 @@ module.dltMsg = function dltMsg(key) {
 
 // Function to clear the entire chat
 module.clearChat = function clearChat() {
-            var confirmation = confirm("THIS WILL DELETE CHATS FOR ALL PARTICIPANTS!! Are you sure to clear chats?");
+            var confirmation = confirm("Are you sure to clear the chats?");
             if (confirmation) {
                 const messagesRef = ref(db, "messages");
                 remove(messagesRef).then(() => {
