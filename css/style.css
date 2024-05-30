@@ -25,11 +25,12 @@ bw:active {
     filter: blur(0); /* Unblur on hover */
   }
 reply {
-    font-weight: 800; /* You can adjust this value to make it bolder */
+    font-weight: 900; /* You can adjust this value to make it bolder */
     font-family: 'Lato', sans-serif;
     background-color: #272727;
     border-radius: 6px;
     padding: 1px;
+    font-size: 20px;
   }
 .logo {
     width: 200px;
@@ -60,7 +61,7 @@ reply {
   }
 .sidebar {
     width: 250px;
-    background-image: url(../images/love1.gif);
+    background-image: url(../images/star3.gif);
     color: white;
     padding: 20px;
     box-sizing: border-box;
@@ -72,10 +73,10 @@ reply {
     margin-top: -10px;
 }
 .contact {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
 }
 .contact:hover {
-    background-color: rgb(59, 17, 68);
+    background-color:#780000;
 }
 
 .container {
@@ -212,7 +213,9 @@ reply {
     animation: slideIn 0.22s; 
 }
 .me{
-    background-color: #af1b7b  ;
+    background-color: #cc0003;
+    backdrop-filter: blur(20px);
+    opacity: 86%;
     color:#fff;
     max-width: 80%;
     font-size: 18px;
@@ -225,7 +228,9 @@ reply {
 }
 .notMe{
     border-radius: 20px;
-    background:#3d0c2c;
+    backdrop-filter: blur(20px);
+    opacity: 88%;
+    background:#520000;
     color:#fff;
     max-width: 80%;
     font-size: 18px;
@@ -299,7 +304,7 @@ reply {
 }
 
 .type.active {
-    box-shadow: rgba(175, 27, 123, 0.87) 0px 10px 100px 0px;
+    box-shadow: rgb(255, 41, 41) 0px 10px 100px 0px;
 }
 .messagetext {
     flex: 1;
@@ -312,7 +317,7 @@ reply {
 
 .sendbutton {
     padding: 10px;
-    background-color: #812b64;
+    background-color: #9d0303;
     color: white;
     border: none;
     cursor: pointer;
@@ -383,7 +388,7 @@ div.contact span {
 .media {
     font-size: 20px;
     cursor: pointer;
-    background-color: #970000;
+    background-color: #6f00ff;
     border-radius: 2px;
     transition: 0.21s;
 }
@@ -528,7 +533,7 @@ div.contact span {
         display: block; /* Show on screens 786px or less */
     }
     body {
-        background-image: url(../images/love1.gif);
+        background-image: url(../images/star3.gif);
     }
 }
 @media screen and (max-width: 768px) {
