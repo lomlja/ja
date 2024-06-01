@@ -106,9 +106,9 @@
                 <!-- Sidebar contacts -->
                 <h1>Chats</h1>
                 <a href="RsInchALeNeBurCiOnADOXYGMateRANt.html">
-                    <div class="contact" id="contact1" style="background-color: #8a0101;">
-                        <img src="images/pfp/jaita.jpg" alt="Profile Picture">
-                        <span>Jaitaaa</span>
+                    <div class="contact" id="contact1" style="background-color: #3d7620;">
+                        <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="Profile Picture">
+                        <span>Jaita</span>
                     </div>
                 </a>
                 <a href="ERATeRsOUsIgIOnicaru.html">
@@ -125,7 +125,7 @@
                 </a>
                 <center>
                     <div class="myprofile">
-                        <img src="images/pfp/jaita.jpg" alt="ME">
+                        <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-with-tail_569298-466.jpg" alt="ME">
                         <p class="myname"><span id="nameDisplay"></span></p>
                     </div>
                 </center>
@@ -145,11 +145,11 @@
             <div class="chat-container">
                 <div class="chat-header" onclick="openNav()">
                     <div class="contact-profile" id="contactProfile" >
-                        <img src="images/pfp/jaita.jpg" alt="Profile Picture">
+                        <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="Profile Picture">
                         <div>
-                            <h1 class="nameuser">Jaitaaa</h1>
+                            <h1 class="nameuser">Jaita</h1>
                             <p id="status"></p>
-                            <p id="statusUser2_1" class="onlinestatustop">connecting...</p>
+                            <p id="statusUser2_1" class="onlinestatus">connecting...</p>
                             
                             
                             
@@ -175,7 +175,7 @@
                     
                     
                 </div>
-               <p id="statusUser2_2" class="onlinestatusbottom">connecting...</p>
+               <p id="statusUser2_2" class="onlinestatustop">connecting...</p>
                 <form onsubmit="return false;" id="messageForm">
                     <div id="sendMsg" class="type">
                         <input type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext" onkeydown="handleTab(event)">
@@ -189,8 +189,8 @@
                 <h1 style="color: #fff;">Chats</h1>
                 <div class="chat-list">
                     <div class="contact" style="background-color: #25428b">
-                        <img src="images/pfp/jaita.jpg" alt="jaita's Profile" class="profile-pic">
-                        <div class="contact-name">Jaitaaa</div>
+                        <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="jaita's Profile" class="profile-pic">
+                        <div class="contact-name">Jaita</div>
                     </div>
                     <br>
                     <a href="ERATeRsOUsIgIOnicaru.html">
@@ -426,7 +426,14 @@ onChildRemoved(ref(db, "messages"), (data) => {
 
 // TO DELETE MSG
 module.dltMsg = function dltMsg(key) {
-    remove(ref(db, "messages/" + key));
+    // Prompt the user for confirmation
+    if (confirm("Are you sure you want to delete this message?")) {
+        // If the user confirms, proceed with deletion
+        remove(ref(db, "messages/" + key));
+    } else {
+        // If the user cancels, do nothing
+        return;
+    }
 }
 
 // Function to clear the entire chat
