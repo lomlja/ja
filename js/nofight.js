@@ -8,7 +8,7 @@ document.getElementById('msgTxt').addEventListener('input', function() {
     // Check if any of the words exactly match any of the keywords
     words.forEach(function(word) {
         if (keywords.includes(word)) {
-            alert('You typed "' + word + '", it seems dry. We do not have to make a fight again. Please remember the love we have for each other, we do love and care each other. It is better if we calm ourselves and talk about the issue openly. Please discuss the issue with your partner about how you feel. Please remind yourselves not to get mad at each other and control your feelings. Talk about it openly.');
+            alert('You typed "' + word + '", it seems dry. NO FIGHTING');
         }
     });
 });
