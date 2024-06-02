@@ -408,9 +408,15 @@ onChildRemoved(ref(db, "messages"), (data) => {
 
 // TO DELETE MSG
 module.dltMsg = function dltMsg(key) {
-    remove(ref(db, "messages/" + key));
+    // Prompt the user for confirmation
+    if (confirm("Are you sure you want to delete this message?")) {
+        // If the user confirms, proceed with deletion
+        remove(ref(db, "messages/" + key));
+    } else {
+        // If the user cancels, do nothing
+        return;
+    }
 }
-
 // Function to clear the entire chat
 module.clearChat = function clearChat() {
             var confirmation = confirm("THIS WILL DELETE CHATS FOR ALL PARTICIPANTS!! Are you sure to clear chats?");
