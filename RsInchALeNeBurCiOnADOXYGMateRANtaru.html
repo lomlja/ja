@@ -5,6 +5,7 @@
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
     <link rel="icon" type="image/x-icon" href="../../images/icon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
@@ -21,6 +22,7 @@
     <title>JA | Mystic</title>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+
 
 </head>
 <style>
@@ -99,14 +101,14 @@
 
     <body >
         <div class="container">
-            <div class="sidebar">
+             <div class="sidebar">
                 <a href="ja-gallery.html" target="_blank"><img src="images/logo.png" class="logo active" id="mainLogo">
                 <img src="images/logo2.png" class="logo" id="secondLogo"></a>
                 <div id="sidecontents">
                 <!-- Sidebar contacts -->
                 <h1>Chats</h1>
                 <a href="RsInchALeNeBurCiOnADOXYGMateRANt.html">
-                    <div class="contact" id="contact1" style="background-color: #3d7620;">
+                    <div class="contact" id="contact1" style="background-color: #814458;">
                         <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="Profile Picture">
                         <span>Jaita</span>
                     </div>
@@ -141,8 +143,10 @@
                     <p>Sign out</p>
                 </a>
                 </div>
+           
             </div>
             <div class="chat-container">
+                <div class="slide-from-up ">
                 <div class="chat-header" onclick="openNav()">
                     <div class="contact-profile" id="contactProfile" >
                         <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="Profile Picture">
@@ -150,9 +154,9 @@
                             <h1 class="nameuser">Jaita</h1>
                             <p id="status"></p>
                             <p id="statusUser2_1" class="onlinestatus">connecting...</p>
+                       
                             
-                            
-                            
+                        
 
 
                         </div>
@@ -163,7 +167,7 @@
                           
                           
                     </div>
-                    
+                </div>
                     
                 </div>
                 <div class="messages" id="messages">
@@ -172,7 +176,6 @@
                         
                     </center>
                     <!-- Chat messages will be appended here dynamically -->
-                    
                     
                 </div>
                <p id="statusUser2_2" class="onlinestatustop">connecting...</p>
@@ -184,6 +187,7 @@
                 </form>
             </div>
         </div>
+    </div></div>
         <div id="popup" class="popup-overlay">
             <div class="popup-content">
                 <h1 style="color: #fff;">Chats</h1>
@@ -494,13 +498,20 @@ const receivedMessage = "AAA KURCHI NI MADATHAPETTI";
 playAudioIfKurchi(receivedMessage);
 
   </script>
- 
+ <script>
+    // Add the 'animated' class to trigger the animation after the page has loaded
+    window.addEventListener('load', function() {
+      document.getElementById('content').classList.add('animated');
+    });
+  </script>
 <script src="js/cutegif.js"></script>
 <script src="js/curtain.js"></script>
 <script src="js/format.js"></script>
 <script src="js/glow.js"></script>
 <script src="js/logo.js"></script>
 <script src="js/nofight.js"></script>
-
+<script>
+    
+</script>
 </body>
 </html>
