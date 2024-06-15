@@ -55,13 +55,13 @@
     const presenceRef = firebase.database().ref("presence");
   
     function setOnlineStatus() {
-      presenceRef.child("user2").set("online");
+      presenceRef.child("user2").set("online 👀");
     }
   
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user2").set("last seen at " + lastSeen);
+      presenceRef.child("user2").set("last seen at " + lastSeen + "💤");
     }
   
     setOnlineStatus();
@@ -116,6 +116,7 @@
                     </div>
                 </a>
                 <center>
+                    <div id="timePassed"></div>
                     <div class="myprofile">
                         <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="ME">
                         <p class="myname"><span id="nameDisplay"></span></p>
@@ -155,7 +156,8 @@
                 </div>
                 <div class="messages" id="messages">
                     <center>
-                        <img src="images/logo2.png" alt="MYSTIC" class="logoinchat">
+                        <img src="images/logo2.png" alt="MYSTIC" class="logoinchat"><br> 
+                        <img id="specialImage" src="images/ha.png" alt="Special Image">
                     </center>
                     <!-- Chat messages will be appended here dynamically -->
                 </div>
@@ -190,6 +192,7 @@
                     </div>
                     </a>
                 </div>
+                <div id="timePassedClone"></div>
                 <a href="upload/index.html" target="_blank"><button id="clearChatBtn" class="sendimage">Send Image</button></a>
                 <button id="clearChatBtn" onclick="module.clearChat()" class="clearchatmob">Clear Chat</button>
                 <a href="index.html" class="signoutmob">
@@ -483,5 +486,6 @@ playAudioIfKurchi(receivedMessage);
 <script src="js/format.js"></script>
 <script src="js/glow.js"></script>
 <script src="js/nofight.js"></script>
+<script src="js/together.js"></script>
 </body>
 </html>

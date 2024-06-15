@@ -55,13 +55,13 @@
     const presenceRef = firebase.database().ref("presence");
   
     function setOnlineStatus() {
-      presenceRef.child("user1").set("online");
+      presenceRef.child("user1").set("online👀");
     }
   
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user1").set("last seen at " + lastSeen);
+      presenceRef.child("user1").set("last seen at " + lastSeen + "💤");
     }
   
     setOnlineStatus();
@@ -100,6 +100,9 @@
 
 
     <body >
+        
+          
+         
         <div class="container">
              <div class="sidebar">
                 <a href="ja-gallery.html" target="_blank"><img src="images/logo.png" class="logo active" id="mainLogo">
@@ -126,6 +129,7 @@
                     </div>
                 </a>
                 <center>
+                    <div id="timePassed"></div>
                     <div class="myprofile">
                         <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-with-tail_569298-466.jpg" alt="ME">
                         <p class="myname"><span id="nameDisplay"></span></p>
@@ -143,6 +147,7 @@
                     <p>Sign out</p>
                 </a>
                 </div>
+                
            
             </div>
             <div class="chat-container">
@@ -172,7 +177,8 @@
                 </div>
                 <div class="messages" id="messages">
                     <center>
-                        <img src="images/logo2.png" alt="MYSTIC" class="logoinchat">
+                        <img src="images/logo2.png" alt="MYSTIC" class="logoinchat"><br> 
+                        <img id="specialImage" src="images/ha.png" alt="Special Image">
                         
                     </center>
                     <!-- Chat messages will be appended here dynamically -->
@@ -211,17 +217,23 @@
                     </div>
                     </a>
                 </div>
+                <div id="timePassedClone"></div>
                 <a href="upload/index.html" target="_blank"><button id="clearChatBtn" class="sendimage">Send Image</button></a>
                 <button id="clearChatBtn" onclick="module.clearChat()" class="clearchatmob">Clear Chat</button>
                 <a href="index.html" class="signoutmob">
                     <p>Sign out</p>
                 </a>
-          </div>       
+                
+          </div>    
+          
+          
           
         <audio id="sendSound" src="send.mp3"></audio>
         <audio id="receiveSound" src="recieve.mp3"></audio>
 <audio id="kurchi" src="kurchi.mp3"></audio>
 <audio id="kurchiSound" src="kurchii.mp3"></audio>
+
+
     <script>
         module = {};
     </script>
@@ -510,8 +522,6 @@ playAudioIfKurchi(receivedMessage);
 <script src="js/glow.js"></script>
 <script src="js/logo.js"></script>
 <script src="js/nofight.js"></script>
-<script>
-    
-</script>
+<script src="js/together.js"></script>
 </body>
 </html>
