@@ -4,6 +4,7 @@ body {
     background-color: #000000;
     transition: 1s;
     font-family: 'Golos Text', sans-serif;
+    transition: filter 0.3s ease;
 }
 a {
     text-decoration: none;
@@ -63,7 +64,7 @@ reply {
     width: 250px;
     background-image: url(../images/star3.gif);
     color: white;
-    padding: 20px;
+    padding: 13px;
     box-sizing: border-box;
     overflow-y: auto;
     transition: width 0.3s; /* Add smooth transition for sidebar width */
@@ -503,6 +504,22 @@ div.contact span {
     border-radius: 20px;
     border-color: transparent;
 }
+#specialImage {
+    max-width: 100%;
+    height: auto;
+    display: none; /* Initially hide the image */
+  }
+  #timePassed {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  #timePassedClone {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
 @keyframes heartbeat {
     0% {
         transform: scale(1);
