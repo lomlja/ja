@@ -55,13 +55,13 @@
     const presenceRef = firebase.database().ref("presence");
   
     function setOnlineStatus() {
-      presenceRef.child("user2").set("online 👀");
+      presenceRef.child("user2").set("online");
     }
   
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user2").set("last seen at " + lastSeen + "💤");
+      presenceRef.child("user2").set("dead since " + lastSeen + "💤");
     }
   
     setOnlineStatus();
@@ -121,19 +121,19 @@
                         <img src="https://img.freepik.com/premium-vector/unicorn-font-pink-letter-j-with-heart_569298-487.jpg" alt="ME">
                         <p class="myname"><span id="nameDisplay"></span></p>
                     </div>
-                </center>
-                <a href="upload/index.html" target="_blank">
                     <center>
-                        <button id="clearChatBtn" class="sendimage">Send Image</button>
+                        <button id="showReminderBtn" class="reminderbutton">📝</button>
+                    <a href="upload/index.html" target="_blank">
+                            <button id="clearChatBtn" class="sendimage">Send Image</button>
+                    </a>
+                        </center>
+                    <center>
+                        <button id="clearChatBtn" onclick="module.clearChat()" class="clearchat">Clear Chat</button>
                     </center>
-                     </a>
-                <center>
-                    <button id="clearChatBtn" onclick="module.clearChat()" class="clearchat">Clear Chat</button>
-                </center>
-                <a href="index.html" class="signout">
-                    <p>Sign out</p>
-                </a>
-                </div>
+                    <a href="index.html" class="signout">
+                        <p>Sign out</p>
+                    </a>
+                    </div>
             </div>
             <div class="chat-container">
                 <div class="slide-from-up ">
@@ -169,6 +169,12 @@
                 </form>
             </div>
         </div>
+        <div id="reminder" class="reminder">
+            <label for="textAreaInput">NOTES:</label><br>
+            <textarea id="textAreaInput"></textarea><br>
+            <button id="saveBtn">Save</button>
+            <button id="closeBtn">Close</button>
+        </div>
         <div id="popup" class="popup-overlay">
             <div class="popup-content">
                 <h1 style="color: #fff;">Chats</h1>
@@ -193,6 +199,7 @@
                     </a>
                 </div>
                 <div id="timePassedClone"></div>
+                <button id="showReminderBtnCopy" class="reminderbutton">📝</button>
                 <a href="upload/index.html" target="_blank"><button id="clearChatBtn" class="sendimage">Send Image</button></a>
                 <button id="clearChatBtn" onclick="module.clearChat()" class="clearchatmob">Clear Chat</button>
                 <a href="index.html" class="signoutmob">
@@ -480,7 +487,8 @@ const receivedMessage = "AAA KURCHI NI MADATHAPETTI";
 playAudioIfKurchi(receivedMessage);
 
   </script>
-  
+
+<script src="js/reminder.js"></script>
 <script src="js/curtain.js"></script>
 <script src="js/logo.js"></script>
 <script src="js/format.js"></script>
