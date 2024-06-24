@@ -313,6 +313,7 @@ reply {
     border-radius: 10px;
     box-shadow: 0px 0px 0px #cd07ff;
     transition: box-shadow 0.5s ease;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .type.active {
@@ -320,11 +321,12 @@ reply {
 }
 .messagetext {
     flex: 1;
-    padding: 10px;
     box-sizing: border-box;
     background-color: #333333;
     border-radius: 10px;
     color: rgb(255, 255, 255);
+    font-family: 'Golos Text', sans-serif;
+    resize: none; /* Disable manual resizing by the user */
 }
 
 .sendbutton {
@@ -352,7 +354,10 @@ div.contact span {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+  textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 50px; /* Adjust as needed */
+}
 
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
@@ -576,6 +581,7 @@ div.contact span {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     z-index: 1000;
     border-radius: 20px;
+    width: 230px;
 }
 
 .reminder textarea {
