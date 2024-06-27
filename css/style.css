@@ -79,7 +79,7 @@ reply {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    backdrop-filter: blur(10px);
     z-index: 9999;
     opacity: 1;
     transition: opacity 1s ease-out;
@@ -137,7 +137,7 @@ reply {
 }
 
 .chat-header {
-    background-color: #000000;
+    backdrop-filter: blur(10px);
     color: white;
     padding: 10px;
     text-align: center;
@@ -430,16 +430,16 @@ div.contact span {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
   }
   
   .popup-content {
-    background: #121212;
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 1px 10px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     width: 100%;
     text-align: center;
@@ -448,7 +448,7 @@ div.contact span {
     padding: auto;
     border-radius: 20px;
     margin: 20px auto;
-    background-color: #121212;
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -551,12 +551,79 @@ div.contact span {
     }
 }
 
+
 .heart-animation {
     animation: heartbeat 1s infinite;
 }
 .bounce {
     animation: bounce 0.5s ease;
   }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* semi-transparent black background */
+    backdrop-filter: blur(5px); /* backdrop-filter for blur effect */
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #2e0421;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    transition: 0.4s;
+    color: #fff;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#cancelDelete {
+    background-color: transparent;
+    border-color: #fff;
+    border: 1px solid rgb(0, 99, 61);
+}
+
+.modal-content button:hover {
+    background-color: #da190b;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
@@ -576,9 +643,9 @@ div.contact span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #131313;
+    backdrop-filter: blur(10px);
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(252, 216, 216, 0.1);
     z-index: 1000;
     border-radius: 20px;
     width: 230px;
