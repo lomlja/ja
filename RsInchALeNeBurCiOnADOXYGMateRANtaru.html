@@ -554,27 +554,7 @@ function closeSidebar() {
         e.preventDefault();
     });
 </script>
-<script>
- // Function to play audio when "KURCHI" is mentioned
-function playAudioIfKurchi(message) {
-    if (message.toUpperCase().includes('KURCHI')) {
-        const audio = new Audio('kurchi.mp3');
-        audio.play();
-    }
-}
 
-// Example usage:
-// Simulating receiving a message
-const receivedMessage = "AAA KURCHI NI MADATHAPETTI";
-playAudioIfKurchi(receivedMessage);
-
-  </script>
- <script>
-    // Add the 'animated' class to trigger the animation after the page has loaded
-    window.addEventListener('load', function() {
-      document.getElementById('content').classList.add('animated');
-    });
-  </script>
   <script src="js/reminder.js"></script>
 <script src="js/cutegif.js"></script>
 <script src="js/curtain.js"></script>
