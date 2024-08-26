@@ -15,6 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../../images/icon.ico">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -55,13 +58,13 @@
     const presenceRef = firebase.database().ref("presence");
   
     function setOnlineStatus() {
-      presenceRef.child("user1").set("on air");
+      presenceRef.child("user1").set("💚💚💚💚💚💚💚💚💚💚💚💚");
     }
   
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user1").set("was here at "  + lastSeen);
+      presenceRef.child("user1").set("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ "  + lastSeen);
     }
   
     setOnlineStatus();
@@ -161,7 +164,7 @@
                         <div>
                             <h1 class="nameuser">Jaita</h1>
                             <p id="status"></p>
-                            <p id="statusUser2_1" class="onlinestatus">connecting...</p>
+                            <p id="statusUser2_1" class="onlinestatus"><img src="https://media2.giphy.com/media/55aZPPaqOvsUoxkapE/giphy.gif?cid=6c09b952y322aoz08798hgpl972hhqlcd67f4f5w2ksu8pxv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" style="width: 20px; height: 20px;"></p>
                        
                             
                         
