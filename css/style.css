@@ -259,7 +259,7 @@ reply {
     margin-top: 5px;
     font-size: 8px;
     background-color: #000000;
-    opacity: 1%;
+    opacity: 20%;
     border-color: transparent;
     color: #ffffff;
 }
@@ -740,15 +740,15 @@ div.contact span {
 
 @media screen and (max-width: 375px) {
     .me{
-        font-size: 16px;
+        font-size: 20px;
         
          
     }
     .notMe{
-        font-size: 23px;
+        font-size: 20px;
     }
     #inner {
-        font-size: 23px;
+        font-size: 20px;
     }
    
 }
