@@ -1,0 +1,54 @@
+@keyframes slideFromUp {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-from-up {
+    animation: slideFromUp 0.5s ease-in-out;
+  }
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .contact, h1 {
+    animation: scaleIn 0.5s ease-in-out;
+  }
+
+  @keyframes smoothlyAppear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  form {
+    animation: smoothlyAppear 2s ease-in-out;
+  }
+  
+  @keyframes blurOut {
+    0% {
+      filter: blur(10px);
+    }
+    100% {
+      filter: blur(0px);
+    }
+  }
+  
+  body {
+    animation: blurOut 1s ease-in-out;
+  }
