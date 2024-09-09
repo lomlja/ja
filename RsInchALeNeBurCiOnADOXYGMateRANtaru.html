@@ -58,13 +58,13 @@
     const presenceRef = firebase.database().ref("presence");
   
     function setOnlineStatus() {
-      presenceRef.child("user1").set("💚💚💚💚💚💚💚💚💚💚💚💚");
+      presenceRef.child("user1").set("💚💚💚");
     }
   
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user1").set("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ "  + lastSeen);
+      presenceRef.child("user1").set("❤️❤️❤️ "  + lastSeen);
     }
   
     setOnlineStatus();

@@ -202,7 +202,7 @@ reply {
 }
 .messages {
     flex: 1;
-    padding: 50px;
+    padding: 20px;
     box-sizing: border-box;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -219,38 +219,39 @@ reply {
 }
 #inner{
     max-width: 80%;
-    font-size: 25px;
+    font-size: 18px;
     padding:11px;
     border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 9px 0px rgba(0, 0, 0, 0.516);
     animation: slideIn 0.22s; 
-    font-family: "Lemon", serif;
 }
 .me{
-    background-color: transparent;
-    text-shadow: 2px 2px 4px rgba(122, 122, 122, 0.418);
+    background-color: rgb(175 27 123);
+    backdrop-filter: blur(20px);
+    opacity: 86%;
     color:#fff;
     max-width: 80%;
-    font-size: 25px;
+    font-size: 18px;
     padding:11px;
+    box-sizing: border-box;
+    box-shadow: 0 0 9px 0px rgba(0, 0, 0, 0.516);
     animation: slideIn 0.22s;
-    transform: rotate(6deg);
-    font-family: "Lemon", serif;
-    font-weight: 800;
     
      
 }
 .notMe{
     border-radius: 20px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.342);
-    background:transparent;
+    backdrop-filter: blur(20px);
+    opacity: 88%;
+    background:rgb(61 12 44);
     color:#fff;
     max-width: 80%;
-    font-size: 25px;
+    font-size: 18px;
     padding:11px;
+    box-sizing: border-box;
+    box-shadow: 0 0 9px 0px rgba(0, 0, 0, 0.516);
     animation: slideIn 0.22s;
-    transform: rotate(-6deg);
-    font-family: "Lemon", serif;
-
 }
 #dltMsg {
     border-radius: 50px;
@@ -259,7 +260,7 @@ reply {
     margin-top: 5px;
     font-size: 8px;
     background-color: #000000;
-    opacity: 20%;
+    opacity: 1%;
     border-color: transparent;
     color: #ffffff;
 }
