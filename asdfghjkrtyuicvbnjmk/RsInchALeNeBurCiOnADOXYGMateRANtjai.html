@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="icon" type="image/x-icon" href="../../images/icon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../images/icon.ico">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="images/icon.ico">
+    <title>JA | twelve</title>
+<!-- Replace these script tags in your HTML files -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+
+</head>
+<style>
+    .logo {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    .logo.active {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyA5w-HTh1kbuOywI1M4bviLWskbro3egNw",
+      authDomain: "ja-chat-c0d8b.firebaseapp.com",
+      databaseURL: "https://ja-chat-c0d8b-default-rtdb.firebaseio.com",
+      projectId: "ja-chat-c0d8b",
+      storageBucket: "ja-chat-c0d8b.appspot.com",
+      messagingSenderId: "79690163887",
+      appId: "1:79690163887:web:04960546a911e0286b565a",
+      measurementId: "G-0JT6YDEXW9"
+    };
+  
+    firebase.initializeApp(firebaseConfig);
+  
+    const presenceRef = firebase.database().ref("presence");
+  
+    function setOnlineStatus() {
+      presenceRef.child("user2").set("💚💚💚");
+    }
+  
+    function setOfflineStatus() {
+      const options = { hour: '2-digit', minute: '2-digit', hour12: true };
+      const lastSeen = new Date().toLocaleTimeString([], options);
+      presenceRef.child("user2").set("❤️❤️❤️ " + lastSeen);
+    }
+  
+    setOnlineStatus();
+  
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") {
+        setOfflineStatus();
+      } else {
+        setOnlineStatus();
+      }
+    });
+  
+    presenceRef.child("user1").on("value", function (snapshot) {
+      const presence = snapshot.val();
+      const statusElement = document.getElementById("statusThoughts1");
+  
+      if (presence === "online") {
+        statusElement.innerText = "online";
+      } else {
+        statusElement.innerText = presence;
+      }
+    });
+</script>
+
+
+
+
+        <div class="container">
+            <div class="sidebar">
+                <a href="ja-gallery.html" target="_blank"><img src="images/logo.png" class="logo active" id="mainLogo">
+                    <img src="images/logo2.png" class="logo" id="secondLogo"></a>
+                    <div id="sidecontents">
+                <!-- Sidebar contacts -->
+                <h1>Chats</h1>
+                <a href="RsInchALeNeBurCiOnADOXYGMateRANtjai.html">
+                    <div class="contact" id="contact1" style="background-color: #af1b7b;">
+                        <img src="images/pfp/aru.jpg" alt="Profile Picture">
+                        <span>Aravind</span>
+                    </div>
+                </a>
+                <a href="ERATeRsOUsIgIOnicjai.html">
+                    <div class="contact" id="contact2">
+                        <img src="https://i1.sndcdn.com/artworks-R3VvDM11AO3PxPnU-g1w9xA-t500x500.jpg" alt="Profile Picture">
+                        <span>Thoughts</span>
+                    </div>
+                </a>
+                <a href="igerTnIFTWORAVioNtejai.html">
+                    <div class="contact" id="contact3">
+                        <img src="images/pfp/group.jpg" alt="Profile Picture">
+                        <span>twelve</span>
+                    </div>
+                </a>
+                <center>
+                    <div id="timePassed"></div>
+                    <div class="myprofile">
+                        <img src="images/pfp/jai.jpg" alt="ME">
+                        <p class="myname"><span id="nameDisplay"></span></p>
+                    </div>
+                    <center>
+                        <button id="showReminderBtn" class="reminderbutton">📝</button>
+                    <a href="upload/index.html" target="_blank">
+                            <button id="clearChatBtn" class="sendimage">Send Image</button>
+                    </a>
+                        </center>
+                    <center>
+                        <button id="clearChatBtn" onclick="module.clearChat()" class="clearchat">Clear Chat</button>
+                    </center>
+                    <a href="index.html" class="signout">
+                        <p>Sign out</p>
+                    </a>
+                    </div>
+            </div>
+            <div class="chat-container">
+                <div class="slide-from-up ">
+                <div class="chat-header" onclick="openNav()">
+                    <div class="contact-profile" id="contactProfile" >
+                        <img src="images/pfp/aru.jpg" alt="Profile Picture">
+                        <div>
+                            <h1 class="nameuser">Aravind</h1>
+                            <p id="statusThoughts1" class="onlinestatus"><img src="https://media2.giphy.com/media/55aZPPaqOvsUoxkapE/giphy.gif?cid=6c09b952y322aoz08798hgpl972hhqlcd67f4f5w2ksu8pxv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" style="width: 20px; height: 20px;"></p>
+
+
+                            
+                        </div>
+                        <div class="my-div" id="triggerDiv">
+                            <ion-icon name="chevron-forward-outline" class="backbtn"></ion-icon>
+                          </div>
+                          
+                    </div>
+                </div>
+                </div>
+                <div class="messages" id="messages">
+                    <center>
+                        <img src="images/logo2.png" alt="twelve" class="logoinchat"><br> 
+                        <img id="specialImage" src="ha.png" alt="Special Image">
+                    </center>
+                    <!-- Chat messages will be appended here dynamically -->
+                </div>
+                <form onsubmit="return false;" id="messageForm">
+                    <div id="sendMsg" class="type">
+                        <textarea type="text" id="msgTxt" placeholder="Message your baby..." class="messagetext" onkeydown="handleTab(event)"></textarea>
+                        <input type="submit" id="msgBtn" value="Send" oninput="autoResize()" onclick="module.sendMsg()" class="sendbutton" disabled>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <p>Are you sure you want to delete this message?</p>
+                <button id="confirmDelete">Yes</button>
+                <button id="cancelDelete">Cancel</button>
+            </div>
+        </div>
+        <div id="reminder" class="reminder">
+            <label for="textAreaInput" style="color: #fff;">NOTES:</label><br>
+            <textarea id="textAreaInput" ></textarea><br>
+            <button id="saveBtn">Save</button>
+            <button id="closeBtn" >Close</button>
+        </div>
+        <div id="popup" class="popup-overlay">
+            <div class="popup-content">
+                <h1 style="color: #fff;">Chats</h1>
+                <div class="chat-list">
+                    <div class="contact" style="background-color: #25428b">
+                        <img src="images/pfp/aru.jpg" alt="arava's Profile" class="profile-pic">
+                        <div class="contact-name">Aravind</div>
+                    </div>
+                    <br>
+                    <a href="ERATeRsOUsIgIOnicaru.html">
+                    <div class="contact">
+                        <img src="https://i1.sndcdn.com/artworks-R3VvDM11AO3PxPnU-g1w9xA-t500x500.jpg" alt="Thoughts's Profile" class="profile-pic">
+                        <div class="contact-name">Thoughts</div>
+                    </div>
+                    </a>
+                    <br>
+                    <a href="igerTnIFTWORAVioNtearu.html">
+                    <div class="contact">
+                        <img src="images/pfp/group.jpg" alt="twelve's Profile" class="profile-pic">
+                        <div class="contact-name">Mytsic Group</div>
+                    </div>
+                    </a>
+                </div>
+                <div id="timePassedClone"></div>
+                <button id="showReminderBtnCopy" class="reminderbutton">📝</button>
+                <a href="upload/index.html" target="_blank"><button id="clearChatBtn" class="sendimage">Send Image</button></a>
+                <button id="clearChatBtn" onclick="module.clearChat()" class="clearchatmob">Clear Chat</button>
+                <a href="index.html" class="signoutmob">
+                    <p>Sign out</p>
+                </a>
+          </div>
+       
+        
+        <audio id="sendSound" src="send.mp3"></audio>
+        <audio id="receiveSound" src="recieve.mp3"></audio>
+            <audio id="kurchi" src="kurchi.mp3"></audio>
+<audio id="kurchiSound" src="kurchii.mp3"></audio>
+    <script>
+        module = {};
+    </script>
+    <script type="module"> 
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getDatabase, ref, set, remove, push, onChildAdded, onChildRemoved } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+ 
+        const firebaseConfig = {
+        apiKey: "AIzaSyA5w-HTh1kbuOywI1M4bviLWskbro3egNw",
+        authDomain: "ja-chat-c0d8b.firebaseapp.com",
+        databaseURL: "https://ja-chat-c0d8b-default-rtdb.firebaseio.com",
+        projectId: "ja-chat-c0d8b",
+        storageBucket: "ja-chat-c0d8b.appspot.com",
+        messagingSenderId: "79690163887",
+        appId: "1:79690163887:web:04960546a911e0286b565a",
+        measurementId: "G-0JT6YDEXW9"
+        };
+      
+          // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const analytics = getAnalytics(app);
+
+var msgTxt = document.getElementById('msgTxt');
+var msgBtn = document.getElementById('msgBtn');
+var nameDisplay = document.getElementById('nameDisplay');
+var sender = 'jai'; // Set the sender's name to 'arava'
+
+// Set the text content of the h1 element to the sender's name
+nameDisplay.textContent = sender;
+// Add an input event listener to the input field
+msgTxt.addEventListener('input', function() {
+    // Enable the button if there is text, disable it if the input is empty
+    msgBtn.disabled = msgTxt.value.trim() === '';
+});
+
+// Ensure button is disabled initially if msgTxt starts off empty
+msgBtn.disabled = msgTxt.value.trim() === '';
+
+// Add this listener to handle message deletions
+onChildRemoved(ref(db, "messages"), (deletedSnapshot) => {
+    const deletedKey = deletedSnapshot.key;
+
+    // Remove the corresponding message element from the UI
+    var msgBox = document.getElementById(deletedKey);
+    if (msgBox) {
+        msgBox.parentNode.removeChild(msgBox);
+    }
+});
+// Function to handle key events in the textarea
+function handleTextareaKey(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        // Prevent default behavior (form submission)
+        event.preventDefault();
+        // Call sendMsg function to send the message
+        module.sendMsg();
+    } else if (event.key === "Enter" && event.shiftKey) {
+        // Insert a newline character in the textarea
+        const textarea = event.target;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        textarea.value = textarea.value.substring(0, start) + "\n" + textarea.value.substring(end);
+        // Prevent default behavior (form submission)
+        event.preventDefault();
+    }
+}
+
+// TO SEND MESSAGES
+module.sendMsg = function sendMsg() {
+    console.log("Sending message...");
+    // Disable the submit button before sending the message
+    msgBtn.disabled = true;
+
+    var msg = msgTxt.value;
+
+    // Check if the message contains the word "KURCHI"
+    var containsKurchi = msg.toLowerCase().includes("kurchi");
+
+    // Get a reference to the "messages" location in the database
+    const messagesRef = ref(db, "messages");
+
+    // Push a new message to the "messages" location and get a reference to it
+    const newMessageRef = push(messagesRef);
+
+    // Set the data for the new message
+    set(newMessageRef, {
+        msg: msg,
+        sender: sender,
+        timestamp: firebase.database.ServerValue.TIMESTAMP // Server-side timestamp
+    }).then(() => {
+        console.log("Message sent successfully");
+        // Clear the input field and re-enable the submit button after sending
+        msgTxt.value = '';
+        msgBtn.disabled = false;
+
+        // Scroll down to the new message
+        scrollMessagesToBottom();
+
+        // Play the "send" sound after user interaction
+        const sendSound = document.getElementById("sendSound");
+        sendSound.play();
+
+        // Play the "KURCHI" sound if the message contains "KURCHI"
+        if (containsKurchi) {
+            const kurchiSound = document.getElementById("kurchi");
+            kurchiSound.play();
+        }
+    }).catch(error => {
+        // Handle any errors here
+        console.error("Error sending message:", error);
+        msgBtn.disabled = false; // Re-enable the button if there's an error
+    });
+}
+
+// TO RECEIVE MSG
+onChildAdded(ref(db, "messages"), (data) => {
+    // Your existing code to append messages...
+    if (data.val().sender == sender) {
+        messages.innerHTML += "<div style=justify-content:end class=outer id=" + data.key + "><div id=inner class=me new-message>" + processMessage(data.val().msg) + "<button id=dltMsg onclick=module.dltMsg('" + data.key + "')>X</button></div></div>";
+
+        // Check if the received message contains the word "KURCHI"
+        if (data.val().msg.toLowerCase().includes("kurchi")) {
+            console.log("KURCHI message sent by current user"); // Debugging line
+
+            // Play the "KURCHI" sound
+            const kurchiSound = document.getElementById("kurchi");
+            kurchiSound.play();
+        } else {
+            // Play the "send" sound after user interaction
+            const sendSound = document.getElementById("sendSound");
+            sendSound.play();
+        }
+    } else {
+        messages.innerHTML += "<div class=outer id=" + data.key + "><div class=notMe><br><div class=textbubble-notme new-message>" + processMessage(data.val().msg) + "</div></div></div>";
+
+        // Check if the received message contains the word "KURCHI"
+        if (data.val().msg.toLowerCase().includes("kurchi")) {
+            console.log("KURCHI message received"); // Debugging line
+
+            // Play the "KURCHI" sound
+            const kurchiSound = document.getElementById("kurchi");
+            kurchiSound.play();
+        } else {
+            // Play the "receive" sound
+            const receiveSound = document.getElementById("receiveSound");
+            receiveSound.play();
+        }
+    }
+
+    // Scroll down to the new message
+    scrollMessagesToBottom();
+
+    // Add the new-message class to the newly added element
+    const newMessageElement = document.querySelector(".new-message");
+    if (newMessageElement) {
+        // Remove the class after the animation ends
+        newMessageElement.addEventListener("animationend", () => {
+            newMessageElement.classList.remove("new-message");
+        });
+    }
+
+    // Modify existing delete button to delete corresponding message
+    var deleteButton = msgBox.querySelector("#dltMsg");
+    deleteButton.setAttribute("onclick", `module.dltMsg('${data.key}')`);
+});
+
+// Function to process messages and identify image and video links
+function processMessage(msg) {
+    // Regular expression to check if the message contains a valid URL
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+    // Check if the message contains a valid URL
+    if (urlRegex.test(msg)) {
+        // Replace the URL with an image or video preview
+        msg = msg.replace(urlRegex, (match) => {
+            // Check if the URL is from Firebase Storage
+            if (match.includes("https://firebasestorage.googleapis.com")) {
+                return `<div class="media-container" data-url="${match}"><h1 class="media">Media: Tap to show</h1></div>`;
+            } else if (/\.(jpeg|jpg|gif|png)$/.test(match.toLowerCase())) {
+                // Check if the URL is an image
+                return `<div class="image-container"><img src="${match}" alt="Image"></div>`;
+            } else if (/\.(mp4|ogg|webm)$/.test(match.toLowerCase())) {
+                // Check if the URL is a video
+                return `<div class="video-container"><video controls width="320" height="240"><source src="${match}" type="video/mp4"></video></div>`;
+            } else {
+                // If it's not an image or video, display the custom message as a clickable link
+                return `<div class="link-container">Sent you a link: <a href="${match}" target="_blank" rel="noopener noreferrer">OPEN</a></div>`;
+            }
+        });
+    }
+
+    return msg;
+}
+
+// Set up event listeners for media containers
+document.addEventListener("click", function(event) {
+    const mediaContainer = event.target.closest(".media-container");
+    if (mediaContainer) {
+        const url = mediaContainer.getAttribute("data-url");
+        if (url) {
+            openLink(url);
+        }
+    }
+});
+
+// Function to open the link in a new tab
+function openLink(url) {
+    window.open(url, "_blank");
+}
+
+
+// Scroll down to the bottom of the messages container
+function scrollMessagesToBottom() {
+    var messagesContainer = document.getElementById("messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// TO DELETE MSG
+module.dltMsg = function dltMsg(key) {
+    var modal = document.getElementById('myModal');
+    var confirmBtn = document.getElementById('confirmDelete');
+    var cancelBtn = document.getElementById('cancelDelete');
+
+    // Show the modal
+    modal.style.display = 'block';
+
+    // Event listener for confirm button
+    confirmBtn.onclick = function() {
+        // Proceed with deletion
+        remove(ref(db, "messages/" + key))
+            .then(() => {
+                // Remove the message from the DOM
+                var msgBox = document.getElementById(key);
+                if (msgBox) {
+                    msgBox.parentNode.removeChild(msgBox);
+                }
+            })
+            .catch(error => {
+                console.error("Error deleting message:", error);
+            });
+
+        // Close the modal
+        modal.style.display = 'none';
+    }
+
+    // Event listener for cancel button
+    cancelBtn.onclick = function() {
+        // Close the modal without deleting
+        modal.style.display = 'none';
+    }
+}
+
+// Function to clear the entire chat
+module.clearChat = function clearChat() {
+    var confirmation = confirm("Are you sure to clear the chats?");
+    if (confirmation) {
+        const messagesRef = ref(db, "messages");
+        remove(messagesRef).then(() => {
+            var messagesContainer = document.getElementById("messages");
+            messagesContainer.innerHTML = "";
+        }).catch(error => {
+            console.error("Error clearing chat:", error);
+        });
+    }
+}
+
+// Event listener for textarea key events
+msgTxt.addEventListener('keydown', handleTextareaKey);
+      </script>
+      <script>
+        function toggleSidebar() {
+    const overlay = document.getElementById('overlay');
+    const popup = document.getElementById('popup');
+
+    overlay.style.display = 'block';
+    popup.style.display = 'block';
+}
+
+function closeSidebar() {
+    const overlay = document.getElementById('overlay');
+    const popup = document.getElementById('popup');
+
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+}
+      </script>
+
+<script>
+    document.addEventListener('copy', function (e) {
+        var selectedText = window.getSelection().toString();
+        var formattedText = "<reply>" + selectedText + "</reply><br>  ";
+        e.clipboardData.setData('text/html', formattedText);
+        e.clipboardData.setData('text/plain', formattedText);
+        e.preventDefault();
+    });
+</script>
+
+  <script src="js/reminder.js"></script>
+<script src="js/cutegif.js"></script>
+<script src="js/curtain.js"></script>
+<script src="js/format.js"></script>
+<script src="js/glow.js"></script>
+<script src="js/logo.js"></script>
+<script src="js/together.js"></script>
+<script src="js/deletion.js"></script>
+</body>
+</html>
