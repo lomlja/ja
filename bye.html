@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>EW</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<style>
+      body {
+            font-family: "Inter", sans-serif;
+      }
+</style>
+<script>
+      const firebaseConfig = {
+       apiKey: "AIzaSyA5w-HTh1kbuOywI1M4bviLWskbro3egNw",
+       authDomain: "ja-chat-c0d8b.firebaseapp.com",
+       databaseURL: "https://ja-chat-c0d8b-default-rtdb.firebaseio.com",
+       projectId: "ja-chat-c0d8b",
+       storageBucket: "ja-chat-c0d8b.appspot.com",
+       messagingSenderId: "79690163887",
+       appId: "1:79690163887:web:04960546a911e0286b565a",
+       measurementId: "G-0JT6YDEXW9"
+     };
+   
+     firebase.initializeApp(firebaseConfig);
+   
+     const presenceRef = firebase.database().ref("presence");
+   
+     function setOnlineStatus() {
+       presenceRef.child("user2").set("online");
+     }
+   
+     function setOfflineStatus() {
+       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
+       const lastSeen = new Date().toLocaleTimeString([], options);
+       presenceRef.child("user2").set("last seen at " + lastSeen);
+     }
+   
+     setOnlineStatus();
+   
+     document.addEventListener("visibilitychange", function () {
+       if (document.visibilityState === "hidden") {
+         setOfflineStatus();
+       } else {
+         setOnlineStatus();
+       }
+     });
+   
+     presenceRef.child("user1").on("value", function (snapshot) {
+       const presence = snapshot.val();
+       const statusElement = document.getElementById("statusThoughts1");
+   
+       if (presence === "online") {
+         statusElement.innerText = "online";
+       } else {
+         statusElement.innerText = presence;
+       }
+     });
+ </script>
+ <script src="js/app.js"></script>
+<body>
+      <h3>Please get a life instead of staying with a person who is so ew. Do you know that I have a mallu accent??? IT'S SO EWWWW, WHY ARE YOU STAYING WITH ME? CAN'T YOU DATE SOME GUY WHO'S TELUGU? <br> 
+      I am done with this relationship, i don't think it would ever work out. We had our final goodbyes on that day. Now, we can try to avoid each other and move on easily. I am sure you can move on easily when I am already ew. Tanay was ew, so it was easy for you. <br>
+      You can go get your fucking instagram account back, add some dudes and talk to them, see how perfect they are, look at me heh, i'm so ew. It's fine jaita, there are other girls who didn't feel that way about me. Let the work be handed to GOD. I'm such an ew person for you and you accept all shit. Omg, when you measured, it was fucking 1 inch. Hahaha.. How will you bj now? It's fine now, date some guy with 65 inch, make sure to measure him before dating. Please... I don't want some guy to feel like how you made me feel. <br>
+      I am ready for a breakup, so as you. So why don't we do it now? What's stopping us from doing it? LOVE? Do you even love me?? You never did, or you wouldn't make me feel this HORRIBLE. Now i don't believe in your love anymore. It's over. I am done with this fucking shit. <br>
+      Jaita, do you fucking know how much I even do for you? YOU NEVER SEE IT. Do you know how much I am willing to do for you, I would do anything and everything for the one I love. And you are the person I ever loved more. You should be lucky to have someone like that, cause I AM DOWN FOR ANYTHING. But you stop me from doing it. <br>
+      Don't you think that it would HURT when ALL YOU DO IS FOCUS OVER ACCENTS AND PRONUNCIATION? Is my pronunciation and shit THAT BAD FOR YOU TO TEASE OVER? It's not like yours is perfect. Did I ever say shit to you, EVEN FOR FUN??? We even got naked together, i saw your whole body. I NEVER SAID ANY SHIT EVEN WHEN I FEEL SOMETHING. You are a human being too, ofc we both are insecure to be naked, but TRUST is the reason which allowed us to do it. DO YOU KNOW WHAT YOU FUCKING SAID THEN??? ARAVIND LEMME BE HONEST, YOURS IS 1 INCH, oh i need tablets now to grow some sizes when i am SOFT. What is fucking wrong with you, don't you fucking feel shame to do that? <br>
+      <br>
+      You never appreciated me for things except finding the fault and correcting that in me. I mean, it's okay to help me improve in things, that's really sweet, but did you ever show some appreciation? NOPE. I expect your impression to be something nice and something i can always think of, but it ends up you being so normal and saying faults in it and helping me improve. 
+      <br>Now you will be like OH ARAVIND YOU NEVER TAKE COMPLIMENTS. 
+      <br><br>
+      BITCH, DO YOU FUCKING KNOW THAT I BLUSH OVER THINGS THAT KIDS ARE SAYING. <br>
+      I had a haircut which my friends asked me to do. I never did that before and it's my first time. <br>
+      My friends said I have a jawline and wavy hair, so told me to do some shit on my hair. I EXPLAINED EVERYTHING TO THE BARBER, HAD FACE BLEECH, FACE MASSAGE, HAIR WASH, CURLED MY HAIR A BIT. <br>
+      My dad loves it, my mom doesn't like me to have fancy shit obv, my friends be like "omgggg so sexyy", kids in bus be like, "WHICH GIRL ARE YOU TRYING TO IMPRESS?", rathin be like "CHAMMAK STYLE", teachers be like, "you look different", even my aunt said i look different. People COMPLIMENT ME, it's not like I DON'T KNOW HOW TO TAKE IT. I just don't take it from YOU. Because initially you said every single shit about me and now you are being so nice, omg i love everything in you aravind omgggg so good, omgg now everything is good. THE WHOLE FUCKING TIME, EVERYTHING WAS EW. Even my website was ew. 
+      <br>  
+      Uhh i don't know jaita.. You will understand the hurt i have when someone else does things like this to you. Doing something in a special way to see how you react and craving to see your love, you criticize me for something. <br>
+      Yesterday, I sent my sister making a mistake. I expected you to say EW. But you didnt.... <br>
+      So that's not ew, only when I do things it's ew??? 
+      <br>
+      You give me mixed feelings and thoughts, okay so.. fast charging is ew but not ew? So omg what if i have fast charging phone? AM I EW THEN??? I told you to take painkillers 'cause I didn't want my girl to go through that much pain. I always thought that pain could be divided or transfered it to the other person, i would have taken your pain. Ofc, it's not like only you have the pain. EVERY GIRL IN THIS WORLD HAS ALL THESE PAIN AND SHIT, i am a guy i don't have such experience. If god could ever divide the pain and give some for me, I WOULD TAKE IT. I would do anything for you, but you just don't know me. You don't know how i am. All you see is how i am so ew, you are so fucking judgy. First look at yourself and then judge someone. 
+      <br>Mallu accent it seems. uhh. 
+      <br><br>
+      Jaita, it's not fun, you tease and say shit INITIALLY. That's so fucking wrong. That's what i said, FIRST BUILD TRUST, THEN YOU SAY SHIT, I don't care then. I know you still love me, but all you do is, say shit infront of me and say good things to other. Do you even respect me bitch?? I AM GIVING YOU A HUGE AMOUNT OF RESPECT, it's only when i get mad i can't control myself and will say shit to you. <br>
+      Do you know how you reacted to steve's singing? <br>
+      WOAHHHH, NGLLL HE SINGS SO GOOD.. <br>
+      I don't care about you appreciating someone else, he's my friend, not some random guy. I don't see steve as a friend, i see him like a family, I LITERALLY KISSED HIM. IM CLOSE WITH STEVE , We both sing shit in class. I appreciate him a lott. <br>
+      Do you know how you will react when i sing? <br>
+      "the pronunciation needs more improvement. it's fine.." <br>
+      DO YOU KNOW HOW IT FEELS WHEN I AM EXPECTING A BIGGER REACTION OR IMPRESSION ON SOMETHING I DID JUST FOR YOU? All you say is how i should improve. AND NOTHING ELSE. You would just LEAVE IT LIKE THAT. You don't make me feel special, you make me feel UNWORTHY AND THAT I NEED TO IMPROVE WHEN I AM WITH YOU. Cause I sang, was it enough? no, IT WAS EW. <br>
+      I don't know jaita, do whatever you want. All i can do is LEAVE THIS FUCKING HELL. This relationship is just a hell. BE WITH YOU AND SACRIFIES ALWAYS or else, WE BEING APART. <br>
+      You don't ever listen to me if i say things, how much i begged you to not bring your friends. I still came with you and your FUCKING FRIENDS AND didn't run away when i could literally do that. <br>
+      I still stayed with you when you wanted to screamm your ass mouth and sing shit when i fucking want to leave and go back home. No, never you don't realize the efforts to coming all the way from QASIMIA to MAJAZ. 3.4 km distance is there. 15 mins of cycling, 25-35 mins of walking, it's so easy right? When i say i want to leave, it's because I NEED TO GET BACK HOME ASAP. I came risking, telling parents that i am going to a friend's house and ddin't give exact location and shit. I NEED TO GET BACK HOME QUICK WHEN I SAY I WANT TO LEAVE. 
+      <br>
+      Anyways, thanks for everything you have done for me. We had our last meet up and even smooched also. It's a good ending. It's fine, i'm leaving.
+      <br>
+      It's me your EW BOYFRIEND leaving you. Bye! </h3>
+</body>
+</html>
