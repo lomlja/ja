@@ -34,7 +34,7 @@
     function setOfflineStatus() {
       const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const lastSeen = new Date().toLocaleTimeString([], options);
-      presenceRef.child("user2").set("last seen at " + lastSeen);
+      presenceRef.child("user2").set("Last seen at " + lastSeen);
     }
   
     setOnlineStatus();
