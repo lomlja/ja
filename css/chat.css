@@ -201,7 +201,9 @@ body, html {
     padding: 10px;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
-    
+    background-image: url(https://wallpapers.com/images/hd/medicine-pictures-1600-x-1067-n9pw0cbnq3k4amvy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 textarea {
