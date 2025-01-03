@@ -154,9 +154,9 @@ onChildAdded(ref(db, "messages"), (data) => {
     // Add delete button for both sender and receiver
     newMessage = `
         <div class="outer ${msgData.sender === sender ? 'end' : 'start'}" id="${data.key}">
+            <button id="deletmessagefordc" onclick="module.dltMsg('${data.key}')">DELETE</button>
             <div id="inner" class="${msgData.sender === sender ? 'me' : 'notMe'}">
                 ${messageContent}
-                <button id="dltMsg" onclick="module.dltMsg('${data.key}')">x</button>
             </div>
         </div>`;
 

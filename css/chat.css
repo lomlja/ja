@@ -350,6 +350,18 @@ textarea:focus {
     opacity: 100%;
     cursor: pointer;
 }
+#deletmessagefordc {
+    transform: rotate(-90deg);
+    border-radius: 100px;
+    float: right;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 8px;
+    background-color: #921717;
+    border-color: transparent;
+    color: #ffffff;
+
+}
 .sendbutton {
     padding: 10px;
     background-color: #1f7aed;
